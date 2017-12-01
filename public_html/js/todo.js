@@ -13,14 +13,11 @@ $(document).ready(function() {
     function addTodo() {
         var todo = $("#todo").val();
         if(isEmpty(todo))
-            $("#list").append("<li class=\"list-group-item\">" + todo + "</li>");
+            $("ul.list-group#list").append("<li class=\"list-group-item\">" + todo + "</li>");
         $("#todo").val("");
     }
     
     function isEmpty(variable) {
-        if(variable !== "")
-            return true;
-        else
-            return false;
+        return (variable !== "") ? true : false;
     }
 });
