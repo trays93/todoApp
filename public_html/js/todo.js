@@ -16,7 +16,7 @@ $(document).ready(function() {
     
     function addTodo() {
         var todo = $("#todo").val();
-        if(isEmpty(todo))
+        if(todo !== "")
             $("ul.list-group#list").append("<li class=\"list-group-item\">" +
                 todo +
                 "<button type=\"button\" class=\"close\" aria-label=\"Close\">" +
@@ -24,9 +24,5 @@ $(document).ready(function() {
                 "</button>" +
                 "</li>");
         $("#todo").val("");
-    }
-    
-    function isEmpty(variable) {
-        return (variable !== "") ? true : false;
     }
 });
