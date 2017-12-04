@@ -4,6 +4,9 @@
 
 $(document).ready(function () {
     var todos = [];
+    
+    getLocalStorage();
+    renderList();
 
     $("#add").on('click', function () {
         $("#form").submit(function (e) {
@@ -14,7 +17,6 @@ $(document).ready(function () {
 
     $(document).on('click', ".close", function () {
         var index = $(this).attr('id');
-        alert(index);
         todos.splice(index, 1);
         renderList();
     });
@@ -50,5 +52,21 @@ $(document).ready(function () {
         }
         list += "</ul>";
         $("#notes").append(list);
+        saveToLocalStorage();
+    }
+    
+    function saveToLocalStorage() {
+        window.localStorage.clear();
+        for (var i = 0; i < todos.length; i++) {
+            window.localStorage.setItem(i, todos[i]);
+        }
+    }
+    
+    function getLocalStorage() {
+        var i = 0;
+        while(window.localStorage.getItem(i) !== null) {
+            todos[i] = window.localStorage.getItem(i);
+            i++;
+        }
     }
 });
