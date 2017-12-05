@@ -39,18 +39,18 @@ $(document).ready(function () {
     
     function renderList() {
         $("#list").remove();
-        var list = "<ul class=\"list-group\" id=\"list\">";
+        var list = '<ul class="list-group" id="list">';
         for (var i = 0; i < todos.length; i++) {
-            list += "<li class=\"list-group-item\">" +
+            list += '<li class="list-group-item">' +
                     todos[i] +
-                    "<button type=\"button\" class=\"close\"" +
-                    "id=\"" + i + "\"" +
-                    "aria-label=\"Close\">" +
-                    "<span aria-hidden=\"true\">&times;</span>" +
-                    "</button>" +
-                    "</li>";
+                    '<button type="button" class="close"' +
+                    'id="' + i + '"' +
+                    'aria-label="Close">' +
+                    '<span aria-hidden="true">&times;</span>' +
+                    '</button>' +
+                    '</li>';
         }
-        list += "</ul>";
+        list += '</ul>';
         $("#notes").append(list);
         saveToLocalStorage();
     }
